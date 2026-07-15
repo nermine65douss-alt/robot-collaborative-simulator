@@ -1,0 +1,30 @@
+# Dépendances
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build frontend
+frontend/dist/
+frontend/build/
+
+# Variables d'environnement (secrets, jamais sur Git)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Docker (données locales de volumes, pas les Dockerfiles)
+docker-compose.override.yml
