@@ -1,8 +1,14 @@
+// useRobotSocket.js
+// Connecte le frontend au backend via WebSocket (état temps réel) + REST (commandes).
+// Les URLs sont configurables via variables d'environnement Vite (VITE_*),
+// avec un repli sur localhost pour le développement local.
+
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const API_BASE = "http://localhost:4000/api";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const WS_URL = import.meta.env.VITE_WS_URL || "ws://localhost:4000/ws";
 
-export function useRobotSocket(wsUrl = "ws://localhost:4000/ws") {
+export function useRobotSocket(wsUrl = WS_URL) {
   const [state, setState] = useState(null);
   const [connected, setConnected] = useState(false);
   const socketRef = useRef(null);
